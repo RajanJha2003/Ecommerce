@@ -73,4 +73,14 @@ const loginUser=async(req,res)=>{
 
 }
 
-export {registerUser,loginUser};
+
+const logoutUser=async(req,res)=>{
+    try {
+        res.clearCookie('jwt',{httpOnly:true});
+        res.status(200).json({message:"User logged out"})
+    } catch (error) {
+        
+    }
+}
+
+export {registerUser,loginUser,logoutUser};
